@@ -1,0 +1,59 @@
+.Toast {
+  $offset: $spacing-default;
+  $spacing: 5px;
+  $icon-size: 20px;
+  $border: 2px;
+
+  position: fixed;
+  top: 1.5 * $offset;
+  right: $offset;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  max-width: $icon-size + 2 * $spacing + 2 * $border;
+  padding: $spacing;
+  overflow: hidden;
+  color: $primary;
+  background-color: white;
+  border: $border solid $primary;
+  border-radius: $spacing;
+  transition: max-width .2s, background-color .2s, color .2s;
+
+  &__icon {
+    height: $icon-size + 2 * $spacing;
+    flex: 0 0 ($icon-size + 2 * $spacing);
+    margin: (-$spacing) 0 (-$spacing) (-$spacing);
+    padding: $spacing;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &__close {
+    @extend %close;
+
+    flex: 0 0 $icon-size;
+    margin-left: $spacing;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  &__text {
+    flex: auto;
+    margin-left: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: $icon-size;
+  }
+
+  &--open {
+    max-width: calc(100% - #{2 * $offset});
+    background-color: $primary;
+    color: $white;
+
+    .Toast__close {
+      @extend %close-visible;
+    }
+  }
+}

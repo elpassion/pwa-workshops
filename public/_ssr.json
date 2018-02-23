@@ -1,0 +1,11 @@
+{
+  "lazyLoad": false,
+  "paths": [
+    "/",
+    "/wishlist",
+    "/cellar",
+    "/articles",
+    "/profile"
+  ],
+  "botsOnly": false
+}
